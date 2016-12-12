@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制</title>
+</head>
+<body>
+	<canvas id="demo" width="600px" height="600px">
+		
+	</canvas>
+	<script >
+		var canvas = document.getElementById('demo');
+		canvas.style.border = '2px solid red';
+		var context = canvas.getContext('2d');
+		context.moveTo(100,100);
+		context.lineTo(200,100);
+		context.lineTo(100,200);
+		// context.lineTo(100, 100);
+		context.closePath();//自动闭合路径
+		context.lineWidth = '3px';
+		context.strokeStyle = 'red';
+		context.stroke();
+		context.fillStyle = 'green';
+		context.fill();
+	</script>
+</body>
+</html>

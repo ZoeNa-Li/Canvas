@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas表格</title>
+</head>
+<body>
+<canvas  id="demo" width="600" height="600">
+	
+</canvas>
+	<script >
+		(function(){
+		var canvas = document.getElementById('demo');
+		canvas.style.border = '4px solid red';
+		var context = canvas.getContext('2d');
+		var rW = 20;
+		var cW = 20;
+		for(var i=1; i<canvas.width/rW; i++){
+			context .moveTo(0, i*rW);
+			context .lineTo(canvas.width,i*rW);
+			context .moveTo(i*cW, 0);
+			context .lineTo(i*cW,canvas.height);
+		}
+		context.lineWidth = '2px';
+		context.strokeStyle = 'blue';
+		context.stroke();
+
+		})();
+	</script>
+</body>
+</html>

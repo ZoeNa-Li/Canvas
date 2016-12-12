@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制圆饼</title>
+</head>
+<body>
+	<canvas id="demo" width="600px" height="600px">	
+	</canvas>
+	<script >
+		(function(){
+	    var data = [{
+	    	'value':1,
+	    	 'color':'red',
+	    	 'name':'JavaSrcipt',	
+	    },{
+	    	'value':2,
+	    	 'color':'blue',
+	    	 'name':'C++',
+	    },{
+	    	'value':3,
+	    	 'color':'green',
+	    	 'name':'Java',
+	    }];
+		var canvas = document.getElementById('demo');
+	     	canvas.style.border = '2px solid red';
+		var context = canvas.getContext('2d');
+		var x = 300;
+		var y = 300;
+		var tempAngular = 0;
+		var radius = 200;
+		var startAngle = 0;
+		var endAngle = 0;
+		var anticlockwise = false;
+		for(var i = 0; i < data.length; i++){
+			context.beginPath();
+			context.fillStyle = data[i].color;
+			context.moveTo(x, y);
+            startAngle = endAngle;
+            offsetAngular = ((data[i].value/6)*360)/180*Math.PI;
+            endAngle += offsetAngular;        
+		    context.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+	        context.closePath();
+	        var x0,y0,textAngular,text;
+            textAngular = startAngle + offsetAngular/2;
+	        x0 = x + Math.cos(textAngular)*(radius + 30);	        
+	        y0 = y + Math.sin(textAngular)*(radius + 30);
+            if(textAngular>=90 &&textAngular<=270){
+            	context.textAlign = 'end';
+            }else{
+            	context.textAlign = 'left';
+            }
+            text = parseInt(data[i].value/6*100)+'%'+'  '+data[i].name;
+            context.font = '10px "微软雅黑"';
+	        context.fillText(text, x0, y0)
+	        context.fill();	 
+		}
+			
+		})()
+	</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制圆</title>
+</head>
+<body>
+	<canvas id="demo" width="600px" height="600px">
+		
+	</canvas>
+	<script >
+		(function(){
+		var canvas = document.getElementById('demo');
+	     	canvas.style.border = '2px solid red';
+		var context = canvas.getContext('2d');
+			context.moveTo(200, 200);
+		    context.arc(200, 200,90, 270*Math.PI/180, 360*Math.PI/180,false);
+	        context.closePath();
+		    context.stroke();
+		})()
+	</script>
+</body>
+</html>
