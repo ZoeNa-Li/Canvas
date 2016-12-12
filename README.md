@@ -1,2 +1,2 @@
 # Canvas
-example of Canvas
+Canvas 学习
